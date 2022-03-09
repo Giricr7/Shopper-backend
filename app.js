@@ -3,6 +3,7 @@ const app = express()
 const mongoose = require("mongoose")
 const cookieParser = require("cookie-parser")
 const cors = require("cors")
+require('dotenv').config()
 const morgan = require("morgan")
 // const path = require("path")
 
@@ -17,7 +18,6 @@ app.use("/api", require("./routes/auth"))
 app.use("/api", require("./routes/user"))
 app.use("/api", require("./routes/category"))
 app.use("/api", require("./routes/product"))
-app.use("/api", require("./routes/blog"))
 app.use("/api", require("./routes/orders"))
 app.use("/api", require("./routes/stripePay"))
 
@@ -33,14 +33,6 @@ mongoose
     console.log("DB Connected")
   })
   .catch((err) => console.log(err))
-
-// if production
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"))
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
-//   })
-// }
 
 // listen to server
 const port = process.env.PORT || 4000
