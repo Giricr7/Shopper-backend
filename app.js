@@ -9,7 +9,7 @@ const morgan = require("morgan")
 
 //middlewares
 app.use(cors({
-  origin: "https://shopper-frontend.netlify.app/",
+  origin: "https://shopper-frontend.netlify.app",
   credentials:true,     
   optionSuccessStatus:200
 }))
