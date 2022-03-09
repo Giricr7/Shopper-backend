@@ -8,14 +8,15 @@ const morgan = require("morgan")
 // const path = require("path")
 
 //middlewares
-app.use(morgan("dev"))
-app.use(express.json())
-app.use(cookieParser())
 app.use(cors({
   origin: "https://shopper-frontend.netlify.app/",
   credentials:true,     
   optionSuccessStatus:200
 }))
+app.use(morgan("dev"))
+app.use(express.json())
+app.use(cookieParser())
+
 
 // routes
 app.use("/api", require("./routes/auth"))
