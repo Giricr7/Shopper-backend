@@ -11,7 +11,11 @@ const morgan = require("morgan")
 app.use(morgan("dev"))
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors())
+app.use(cors({
+  origin: "https://shopper-frontend.netlify.app/",
+  credentials:true,     
+  optionSuccessStatus:200
+}))
 
 // routes
 app.use("/api", require("./routes/auth"))
